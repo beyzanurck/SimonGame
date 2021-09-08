@@ -17,6 +17,7 @@ namespace simon
             double pointY = 0;
             int r = 20;
             double pi = Math.PI;
+
             for (int i = 0; i < 360; i+=10)
             {
                 pointX = 2 * r * Math.Cos(i*pi/180);
@@ -26,6 +27,7 @@ namespace simon
                 int y = Convert.ToInt32(pointY);
                 Console.SetCursorPosition(20+60 + x, 30 + y);
                 Console.Write(".");
+             
             }
 
             // blue part
@@ -50,21 +52,22 @@ namespace simon
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
 
-                if (i == 15 || i == 85)
+
+                for (int radius = 17; radius > 9; radius -= 4)
                 {
-                    for (int radius = 17; radius > 9; radius-=4)
-                    {
-                        pointX = 2 * radius * Math.Cos(i * pi / 180);
-                        pointY = radius * Math.Sin(i * pi / 180);
+                    pointX = 2 * radius * Math.Cos(i * pi / 180);
+                    pointY = radius * Math.Sin(i * pi / 180);
 
-                        x = Convert.ToInt32(pointX);
-                        y = Convert.ToInt32(pointY);
-                        Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                        Console.Write(".");
-                    }
-                }             
+                    x = Convert.ToInt32(pointX);
+                    y = Convert.ToInt32(pointY);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.SetCursorPosition(20 + 60 + x, 30 + y);
+                    Console.Write("•");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                            
 
             }
 
@@ -87,8 +90,10 @@ namespace simon
 
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
             // yellow part
@@ -112,21 +117,21 @@ namespace simon
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
 
-                if (i == 100 || i == 170)
+                for (int radius = 17; radius > 9; radius -= 4)
                 {
-                    for (int radius = 17; radius > 9; radius -= 4)
-                    {
-                        pointX = 2 * radius * Math.Cos(i * pi / 180);
-                        pointY = radius * Math.Sin(i * pi / 180);
+                    pointX = 2 * radius * Math.Cos(i * pi / 180);
+                    pointY = radius * Math.Sin(i * pi / 180);
 
-                        x = Convert.ToInt32(pointX);
-                        y = Convert.ToInt32(pointY);
-                        Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                        Console.Write(".");
-                    }
+                    x = Convert.ToInt32(pointX);
+                    y = Convert.ToInt32(pointY);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.SetCursorPosition(20 + 60 + x, 30 + y);
+                    Console.Write("•");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
+                
             }
 
             for (int i = 180; i < 185; i += 1)
@@ -148,8 +153,10 @@ namespace simon
 
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
             // green part
@@ -173,21 +180,22 @@ namespace simon
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
 
-                if (i == 190 || i == 260)
+
+                for (int radius = 17; radius > 9; radius -= 4)
                 {
-                    for (int radius = 17; radius > 9; radius -= 4)
-                    {
-                        pointX = 2 * radius * Math.Cos(i * pi / 180);
-                        pointY = radius * Math.Sin(i * pi / 180);
+                    pointX = 2 * radius * Math.Cos(i * pi / 180);
+                    pointY = radius * Math.Sin(i * pi / 180);
 
-                        x = Convert.ToInt32(pointX);
-                        y = Convert.ToInt32(pointY);
-                        Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                        Console.Write(".");
-                    }
+                    x = Convert.ToInt32(pointX);
+                    y = Convert.ToInt32(pointY);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.SetCursorPosition(20 + 60 + x, 30 + y);
+                    Console.Write("•");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
+                
             }
 
             for (int i = 270; i < 275; i += 1)
@@ -209,8 +217,10 @@ namespace simon
 
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
             // red part
@@ -234,21 +244,22 @@ namespace simon
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
 
-                if (i == 280 || i == 350)
+
+                for (int radius = 17; radius > 9; radius -= 4)
                 {
-                    for (int radius = 17; radius > 9; radius -= 4)
-                    {
-                        pointX = 2 * radius * Math.Cos(i * pi / 180);
-                        pointY = radius * Math.Sin(i * pi / 180);
+                    pointX = 2 * radius * Math.Cos(i * pi / 180);
+                    pointY = radius * Math.Sin(i * pi / 180);
 
-                        x = Convert.ToInt32(pointX);
-                        y = Convert.ToInt32(pointY);
-                        Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                        Console.Write(".");
-                    }
+                    x = Convert.ToInt32(pointX);
+                    y = Convert.ToInt32(pointY);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.SetCursorPosition(20 + 60 + x, 30 + y);
+                    Console.Write("•");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
+                
             }
 
             for (int i = 360; i < 365; i += 1)
@@ -270,8 +281,10 @@ namespace simon
 
                 int x = Convert.ToInt32(pointX);
                 int y = Convert.ToInt32(pointY);
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.SetCursorPosition(20 + 60 + x, 30 + y);
-                Console.Write(".");
+                Console.Write("•");
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
             Console.ReadLine();
