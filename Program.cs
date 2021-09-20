@@ -24,8 +24,7 @@ namespace simon
             Thread.Sleep(800);
 
             Random random = new Random();
-            //int counterForButton = 1;
-           
+            
             int[] buttons = new int[10];
             int[] userChoice = new int[10];
             for (int i = 0; i < buttons.Length; i++)
@@ -56,51 +55,47 @@ namespace simon
                     }
                 }
                 
-
                 Thread.Sleep(500);
 
                 process = " PLAY ";
                 Console.SetCursorPosition(78, 30);
                 Console.Write(process);
-                
-
-                ConsoleKeyInfo keyInfo = Console.ReadKey();
-                switch (keyInfo.Key)
-                {
-                    case ConsoleKey.NumPad1:
-                        userChoice[i] = 1;
-                        break;
-
-                    case ConsoleKey.NumPad2:
-                        userChoice[i] = 2;
-                        break;
-                    case ConsoleKey.NumPad3:
-                        userChoice[i] = 3;
-                        break;
-
-                    case ConsoleKey.NumPad4:
-                        userChoice[i] = 4;
-                        break;
-                }
 
                 bool isMatch = true;
-
-                for (int a = 0; a <= i; a++)
+                for (int y = 0; y <= i; y++)
                 {
-                    if (userChoice[a] != buttons[a])
+                    ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+                    switch (keyInfo.Key)
+                    {
+                        case ConsoleKey.NumPad1:
+                            userChoice[y] = 1;
+                            break;
+
+                        case ConsoleKey.NumPad2:
+                            userChoice[y] = 2;
+                            break;
+                        case ConsoleKey.NumPad3:
+                            userChoice[y] = 3;
+                            break;
+
+                        case ConsoleKey.NumPad4:
+                            userChoice[y] = 4;
+                            break;
+                    }
+
+                    if (userChoice[y] != buttons[y])
                     {
                         isMatch = false;
-                    }
+                        break;
+                    }                    
                 }
-
+                
                 if (isMatch == false)
                 {
                     break;
                 }
                 Thread.Sleep(500);
-
-                //counterForButton++;
-               // buttons = new int[counterForButton];//!!!!
             }
 
             Console.SetCursorPosition(78, 30);
@@ -116,8 +111,6 @@ namespace simon
 
             for (int i = 0; i < 360; i += 10)
             {
-               
-
                 if (i != 50 && i != 140 && i != 230 && i != 320)
                 {
                     pointX = 2 * r * Math.Cos(i * pi / 180);
@@ -336,6 +329,5 @@ namespace simon
                 Thread.Sleep(1000);
             }           
         }
-
     }
 }
