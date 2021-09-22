@@ -41,26 +41,28 @@ namespace simon
                     switch (buttons[x])
                     {
                         case 1:
-                            flashingEffect(ConsoleColor.DarkBlue, 5);
+                            flashingEffect(ConsoleColor.DarkBlue, 5, i);
                             break;
                         case 2:
-                            flashingEffect(ConsoleColor.DarkYellow, 95);
+                            flashingEffect(ConsoleColor.DarkYellow, 95, i);
                             break;
                         case 3:
-                            flashingEffect(ConsoleColor.DarkGreen, 185);
+                            flashingEffect(ConsoleColor.DarkGreen, 185, i);
                             break;
                         case 4:
-                            flashingEffect(ConsoleColor.DarkRed, 275);
+                            flashingEffect(ConsoleColor.DarkRed, 275, i);
                             break;
                     }
                 }
                 
-                Thread.Sleep(500);
+                Thread.Sleep(300);
 
                 process = " PLAY ";
                 Console.SetCursorPosition(78, 30);
                 Console.Write(process);
 
+                Console.SetCursorPosition(125, 30);
+                Console.ForegroundColor = ConsoleColor.Black;
                 bool isMatch = true;
                 for (int y = 0; y <= i; y++)
                 {
@@ -90,14 +92,15 @@ namespace simon
                         break;
                     }                    
                 }
-                
+
+                Console.ForegroundColor = ConsoleColor.White;
+
                 if (isMatch == false)
                 {
                     break;
                 }
-                Thread.Sleep(500);
+                Thread.Sleep(300);
             }
-
             Console.SetCursorPosition(78, 30);
             Console.Write("GAME OVER");
             Console.ReadLine();
@@ -210,12 +213,25 @@ namespace simon
             }
         }
 
-        public static void flashingEffect(ConsoleColor color, int angle)
+        public static void flashingEffect(ConsoleColor color, int angle, int counter)
         {
             int r = 17;
             double pointX = 0;
             double pointY = 0;
             double pi = Math.PI;
+            int sleeping = 400;
+
+            if (3<counter && counter<=6)
+            {
+                sleeping = 200;
+            }
+
+            if (6<counter && counter<=10)
+            {
+                sleeping = 50;
+            }
+
+            Thread.Sleep(500);
 
             for (int repeat = 0; repeat < 1; repeat++)
             {
@@ -271,7 +287,7 @@ namespace simon
                     Console.ForegroundColor = ConsoleColor.White;
                 }
 
-                Thread.Sleep(500);
+                Thread.Sleep(sleeping);
 
                 r = 17;
                 for (int i = angle; i < (angle + 5); i += 1)
@@ -326,7 +342,6 @@ namespace simon
                     Console.ForegroundColor = ConsoleColor.White;
                 }
 
-                Thread.Sleep(1000);
             }           
         }
     }
